@@ -1,10 +1,4 @@
-
--- Drop tables if they exist (to start fresh)
-DROP TABLE IF EXISTS diagnoses;
-DROP TABLE IF EXISTS visits;
-DROP TABLE IF EXISTS patients;
-
--- Create the patients table
+-- Create  patients table
 CREATE TABLE patients (
     patient_id SERIAL PRIMARY KEY,
     full_name VARCHAR(100) NOT NULL,
@@ -12,7 +6,7 @@ CREATE TABLE patients (
     contact_number VARCHAR(15)
 );
 
--- Create the visits table
+-- Create visits table
 CREATE TABLE visits (
     visit_id SERIAL PRIMARY KEY,
     patient_id INT NOT NULL,
@@ -21,7 +15,7 @@ CREATE TABLE visits (
     FOREIGN KEY (patient_id) REFERENCES patients(patient_id)
 );
 
--- Create the diagnoses table
+-- Create  diagnoses table
 CREATE TABLE diagnoses (
     diagnosis_id SERIAL PRIMARY KEY,
     visit_id INT NOT NULL,
